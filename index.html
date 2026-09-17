@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09060d">
+
+<title>Once meses y todavía me tiemblas el corazón</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --bg:#09060d;
+    --bg2:#120b18;
+    --violet:#b96cff;
+    --violet-soft:#d69cff;
+    --cream:#f7edf9;
+    --muted:#c9b9cf;
+    --line:rgba(205,130,255,.20);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    color:var(--cream);
+    background:
+        radial-gradient(circle at 50% 38%, rgba(132,53,171,.18), transparent 32%),
+        radial-gradient(circle at 15% 85%, rgba(101,34,127,.12), transparent 30%),
+        radial-gradient(circle at 90% 15%, rgba(173,70,214,.09), transparent 27%),
+        linear-gradient(145deg,#07050a,#0d0812 48%,#08050c);
+    font-family:"DM Sans",sans-serif;
+    overflow-x:hidden;
+}
+
+/* TEXTURA */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.18;
+    background-image:
+        radial-gradient(rgba(255,255,255,.10) .5px,transparent .5px),
+        radial-gradient(rgba(210,130,255,.08) .5px,transparent .5px);
+    background-size:5px 5px,9px 9px;
+    z-index:0;
+}
+
+/* PARTÍCULAS */
+
+.particles{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:1;
+}
+
+.particle{
+    position:absolute;
+    width:3px;
+    height:3px;
+    border-radius:50%;
+    background:rgba(215,151,255,.65);
+    box-shadow:0 0 12px rgba(205,111,255,.8);
+    animation:float 9s infinite ease-in-out;
+}
+
+.particle:nth-child(1){left:8%;top:25%;animation-delay:0s}
+.particle:nth-child(2){left:18%;top:70%;animation-delay:2s}
+.particle:nth-child(3){left:31%;top:18%;animation-delay:4s}
+.particle:nth-child(4){left:44%;top:82%;animation-delay:1s}
+.particle:nth-child(5){left:57%;top:27%;animation-delay:5s}
+.particle:nth-child(6){left:69%;top:67%;animation-delay:3s}
+.particle:nth-child(7){left:81%;top:31%;animation-delay:6s}
+.particle:nth-child(8){left:93%;top:76%;animation-delay:2s}
+.particle:nth-child(9){left:73%;top:90%;animation-delay:4s}
+.particle:nth-child(10){left:12%;top:48%;animation-delay:7s}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0) scale(.7);
+        opacity:.15;
+    }
+    50%{
+        transform:translateY(-24px) scale(1.25);
+        opacity:.9;
+    }
+}
+
+/* CONTENEDOR */
+
+.main{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:850px;
+    margin:auto;
+    padding:45px 18px 70px;
+}
+
+/* CABECERA */
+
+.intro{
+    text-align:center;
+    padding:30px 8px 38px;
+    animation:appear 1.4s ease both;
+}
+
+.small-label{
+    font-family:"Montserrat",sans-serif;
+    font-size:.68rem;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:#bd91ca;
+    margin-bottom:22px;
+}
+
+.intro h1{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(2.4rem,8vw,4.7rem);
+    line-height:.94;
+    font-weight:600;
+    letter-spacing:-1px;
+    text-shadow:
+        0 0 24px rgba(184,108,255,.16);
+}
+
+.intro h1 span{
+    display:block;
+    color:var(--violet-soft);
+}
+
+.signature-line{
+    width:75px;
+    height:1px;
+    margin:27px auto 0;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(210,130,255,.8),
+        transparent
+    );
+}
+
+/* CARTA */
+
+.letter-shell{
+    position:relative;
+    animation:letterIn 1.5s .25s ease both;
+}
+
+.letter-shell::before{
+    content:"";
+    position:absolute;
+    inset:20px -12px -12px;
+    border-radius:28px;
+    background:rgba(153,72,190,.08);
+    filter:blur(24px);
+    z-index:-1;
+}
+
+.letter{
+    position:relative;
+    padding:clamp(28px,6vw,58px);
+    border:1px solid var(--line);
+    border-radius:26px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(27,17,34,.96),
+            rgba(13,9,18,.97)
+        );
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.55),
+        inset 0 1px 0 rgba(255,255,255,.045);
+}
+
+/* DETALLE SUPERIOR */
+
+.letter-top{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    margin-bottom:38px;
+}
+
+.dot{
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:var(--violet);
+    box-shadow:0 0 14px rgba(190,100,255,.9);
+}
+
+.top-line{
+    width:42px;
+    height:1px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(200,120,255,.5)
+    );
+}
+
+.top-line.right{
+    transform:rotate(180deg);
+}
+
+/* TEXTO */
+
+.letter h2{
+    font-family:"Cormorant Garamond",serif;
+    text-align:center;
+    font-size:clamp(1.8rem,5vw,2.7rem);
+    line-height:1.05;
+    color:#f4dfff;
+    font-weight:600;
+    margin-bottom:12px;
+}
+
+.nickname{
+    text-align:center;
+    font-family:"Cormorant Garamond",serif;
+    font-size:1.35rem;
+    font-style:italic;
+    color:#cda9d8;
+    margin-bottom:38px;
+}
+
+.letter p{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(1.18rem,3vw,1.42rem);
+    line-height:1.72;
+    color:#eee2f0;
+    margin-bottom:23px;
+}
+
+.letter p strong{
+    color:#f7dcff;
+    font-weight:700;
+}
+
+.letter p.center{
+    text-align:center;
+    color:#e9c9f0;
+    font-size:1.55rem;
+    line-height:1.5;
+    margin:34px 0;
+}
+
+.letter p.emphasis{
+    padding:20px 0 20px 20px;
+    border-left:1px solid rgba(201,117,255,.55);
+    color:#f0d9f5;
+}
+
+.final-love{
+    text-align:center;
+    margin-top:38px;
+    padding-top:32px;
+    border-top:1px solid rgba(200,120,255,.14);
+}
+
+.final-love p{
+    margin-bottom:0;
+}
+
+/* FRASE NEÓN */
+
+.neon-ending{
+    margin-top:48px;
+    padding:35px 20px;
+    text-align:center;
+    border-radius:20px;
+    border:1px solid rgba(185,108,255,.35);
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(148,56,192,.17),
+            transparent 68%
+        );
+    box-shadow:
+        inset 0 0 25px rgba(155,68,204,.08),
+        0 0 30px rgba(148,54,190,.06);
+}
+
+.neon-ending .phrase{
+    font-family:"Cormorant Garamond",serif;
+    font-size:clamp(1.35rem,4vw,1.85rem);
+    line-height:1.5;
+    font-weight:600;
+    color:#d88cff;
+    text-shadow:
+        0 0 5px rgba(207,121,255,.9),
+        0 0 15px rgba(185,83,255,.7),
+        0 0 35px rgba(159,54,220,.45);
+    animation:neonPulse 3s ease-in-out infinite;
+}
+
+@keyframes neonPulse{
+    0%,100%{
+        opacity:.86;
+        text-shadow:
+            0 0 5px rgba(207,121,255,.8),
+            0 0 15px rgba(185,83,255,.55),
+            0 0 30px rgba(159,54,220,.35);
+    }
+    50%{
+        opacity:1;
+        text-shadow:
+            0 0 6px rgba(226,159,255,1),
+            0 0 20px rgba(196,101,255,.85),
+            0 0 42px rgba(171,60,240,.6);
+    }
+}
+
+.neon-name{
+    display:block;
+    margin-top:18px;
+    font-family:"Montserrat",sans-serif;
+    font-size:clamp(.72rem,2vw,.9rem);
+    letter-spacing:3px;
+    color:#e2a9ff;
+    text-shadow:
+        0 0 8px rgba(200,103,255,.9),
+        0 0 18px rgba(176,63,234,.7);
+}
+
+/* BOTÓN POEMA */
+
+.poem-area{
+    text-align:center;
+    padding:55px 0 0;
+}
+
+.poem-note{
+    font-family:"Cormorant Garamond",serif;
+    font-style:italic;
+    font-size:1.2rem;
+    color:#bfa8c6;
+    margin-bottom:20px;
+}
+
+.poem-button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:56px;
+    padding:0 30px;
+    border-radius:999px;
+    text-decoration:none;
+    font-family:"Montserrat",sans-serif;
+    font-size:.72rem;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:#fff1ff;
+    border:1px solid rgba(207,126,255,.55);
+    background:rgba(126,45,158,.18);
+    box-shadow:
+        0 0 18px rgba(171,73,225,.15),
+        inset 0 0 18px rgba(188,86,240,.08);
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        background .35s ease;
+}
+
+.poem-button:hover{
+    transform:translateY(-3px);
+    background:rgba(151,58,186,.28);
+    box-shadow:
+        0 0 28px rgba(184,89,242,.35),
+        inset 0 0 20px rgba(204,107,255,.12);
+}
+
+.poem-button:active{
+    transform:scale(.97);
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding-top:55px;
+    color:#735f79;
+    font-size:.65rem;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+/* ANIMACIONES */
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(18px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes letterIn{
+    from{
+        opacity:0;
+        transform:translateY(35px) scale(.985);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+/* RESPONSIVE */
+
+@media(max-width:600px){
+
+    .main{
+        padding:24px 12px 55px;
+    }
+
+    .intro{
+        padding:25px 8px 30px;
+    }
+
+    .small-label{
+        font-size:.58rem;
+        letter-spacing:3px;
+    }
+
+    .letter{
+        padding:28px 21px 32px;
+        border-radius:22px;
+    }
+
+    .letter-top{
+        margin-bottom:30px;
+    }
+
+    .nickname{
+        margin-bottom:30px;
+    }
+
+    .letter p{
+        font-size:1.2rem;
+        line-height:1.65;
+        margin-bottom:21px;
+    }
+
+    .letter p.center{
+        font-size:1.38rem;
+    }
+
+    .letter p.emphasis{
+        padding-left:15px;
+    }
+
+    .neon-ending{
+        padding:30px 15px;
+        margin-top:38px;
+    }
+
+    .poem-area{
+        padding-top:43px;
+    }
+
+    .poem-button{
+        width:100%;
+        padding:0 15px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        scroll-behavior:auto !important;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="particles" aria-hidden="true">
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+</div>
+
+<main class="main">
+
+    <section class="intro">
+
+        <div class="small-label">
+            Miércoles · 16 de septiembre · 2026
+        </div>
+
+        <h1>
+            Once meses
+            <span>y todavía me tiemblas el corazón</span>
+        </h1>
+
+        <div class="signature-line"></div>
+
+    </section>
+
+
+    <section class="letter-shell">
+
+        <article class="letter">
+
+            <div class="letter-top">
+                <span class="top-line"></span>
+                <span class="dot"></span>
+                <span class="top-line right"></span>
+            </div>
+
+
+            <h2>
+                ✦ ONCE MESES Y TODAVÍA ME TIEMBLAS EL CORAZÓN ✦
+            </h2>
+
+            <div class="nickname">
+                Mi Latido de Once Amaneceres
+            </div>
+
+
+            <p>
+                Buenos días, hermosa. ❤️
+            </p>
+
+
+            <p>
+                Hoy es nuestra mañana número diecisiete de este mes en la que te dejo un pedacito de mí escrito para que lo encuentres cuando abras los ojos, y también es un día demasiado especial para mí: <strong>hoy cumplimos 11 meses juntos.</strong>
+            </p>
+
+
+            <p>
+                Ayer fue un día lleno de emociones. Las fotos del grado me pusieron nervioso, ansioso y hasta nostálgico. Hubo un momento en el que recordar a mi abuelo casi me hace llorar, pero me contuve. Y sobre aquello de lo que hablamos antes de irnos... prefiero dejarlo donde pertenece, porque no quiero darle importancia a algo que para mí no vale más que la tranquilidad que quiero tener contigo.
+            </p>
+
+
+            <p class="center">
+                Hoy solamente quiero mirarte y disfrutar de ti.
+            </p>
+
+
+            <p>
+                Ya te preparé algo especial por nuestros 11 meses, pero esta vez tendrás que esperar un poquito para descubrirlo. Quiero ver tu reacción cuando estemos juntos, porque hay cosas que simplemente se sienten más bonitas cuando puedo tenerte frente a mí.
+            </p>
+
+
+            <p>
+                Y aunque leas esto temprano o lo encuentres después, no importa, amor. Lo importante es que hoy vamos a compartir gran parte del día. Iremos a la otra sede, después al colegio, y entre un lugar y otro voy a tener la oportunidad de estar cerquita de la persona que hace que estos once meses tengan un significado tan enorme para mí.
+            </p>
+
+
+            <p class="center">
+                Once meses...
+            </p>
+
+
+            <p>
+                Y todavía me emocionas.<br>
+                Todavía me pones nervioso.<br>
+                Todavía me haces querer abrazarte un poquito más.<br>
+                Todavía encuentro nuevas razones para enamorarme de ti.
+            </p>
+
+
+            <p>
+                Así que empieza bonito tu día, mi amor. Y si en algún momento de hoy te sientes cansada, distraída o simplemente necesitas recordar cuánto te amo, vuelve aquí y acuérdate de esto:
+            </p>
+
+
+            <p class="emphasis">
+                Hay un corazón que desde temprano ya estaba pensando en ti, deseando verte y agradeciendo profundamente que, después de once meses, sigas siendo tú la persona que quiero encontrar al final de cada día.
+            </p>
+
+
+            <p>
+                Te amo muchísimo, mi niña.<br>
+                Y hoy quiero celebrar nuestros once meses de la manera más bonita que sé: <strong>teniendo la suerte de compartirlos contigo.</strong>
+            </p>
+
+
+            <div class="final-love">
+
+                <p>
+                    VALERIA PETRO VILLAZÓN
+                </p>
+
+            </div>
+
+
+            <div class="neon-ending">
+
+                <div class="phrase">
+                    Once meses no alcanzan para explicarte todo lo que despiertas en mí; solo sé que mientras mi corazón siga teniendo un lugar donde sentirse en casa, ese lugar siempre va a llevar tu nombre.
+                </div>
+
+                <span class="neon-name">
+                    VALERIA PETRO VILLAZÓN
+                </span>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <section class="poem-area">
+
+        <div class="poem-note">
+            Y todavía hay algo más que escribí para ti...
+        </div>
+
+        <!-- CAMBIA "poema-17.html" POR EL NOMBRE REAL DE TU ARCHIVO DEL POEMA -->
+
+        <a class="poem-button" href="poema-17.html">
+            ✦ Leer el poema de esta mañana ✦
+        </a>
+
+    </section>
+
+
+    <footer>
+        Hecho para ti · 11 meses · septiembre 2026
+    </footer>
+
+</main>
+
+</body>
+  </html>
